@@ -8,7 +8,8 @@ export default function app() {
     answer: 'JavaScript kütüphanesi.',
     explanation: `Birinin framework diyebilme cüretini gösterdiğini duyarsanız, onu mümkün olduğunca bilgili bir şekilde düzeltmeniz, tercihen yanıtınıza " aslında..." diye başlamanız önemlidir.`,
   })
-
+  const [isClick,setIsClick] = useState(false)
+  const handleClick = () => setIsClick((prev)=> !prev)
   /* Challenge: 
 
     Flashcard'ın ileri geri çevrilmesi gerekiyor. Göreviniz bunu aşağıdaki gibi ayarlamaktır: 
@@ -29,7 +30,7 @@ export default function app() {
 
       {/*-------Aşağıdaki div'i düzenleyin------------*/}
 
-      <div className='flash-card'>
+      <div className={isClick ? `flash-card flipped` :`flash-card`} onClick={handleClick}>
         {/*-------Yukarıdaki div'i düzenleyin------------*/}
 
         <div className='flash-card-inner'>
